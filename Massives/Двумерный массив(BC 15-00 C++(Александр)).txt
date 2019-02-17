@@ -1,0 +1,32 @@
+#include<iostream>
+#include<ctime>
+#include<Windows.h>
+using namespace std;
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	const int n = 10;
+	const int m = 7;
+	int mas[n][m];
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			mas[i][j] = rand() % 100;
+			if ((mas[i][j] > 49 && mas[i][j] < 60) || (mas[i][j] % 10 == 5))
+			{
+				mas[i][j] = 0;
+			}
+			cout << mas[i][j] << " ";
+			Sleep(200);
+		}
+		cout << endl;
+	}
+
+
+
+
+
+	system("pause");
+}

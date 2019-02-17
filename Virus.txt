@@ -1,0 +1,31 @@
+#includeiostream
+#includevector
+#includestring
+#includeWindows.h
+#includectime
+#includefstream
+
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, Rus);
+	srand(time(NULL));
+	ofstream fout;
+	ifstream fin;
+	string name = DdosN;
+
+	
+	for (int i = 0; i  20; i++)
+	{
+		name[rand() % name.length()] = 32 + rand() % 150;
+		fout.open(CUserspupilDesktoptest + name + .txt);
+		for (int j = 0; j  100; j++)
+		{
+			fout  (char) rand() % 10;
+		}
+		fout  Hello, world  endl;
+	}
+	fout.close();
+	system(pause);
+}

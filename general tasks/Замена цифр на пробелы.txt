@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	string text;
+	cout << "Fill the text" << endl;
+	getline(cin, text);
+	for (int i = 0; i < text.length(); i++)
+	{
+		if (text[i] >=48 && text[i] <= 57)
+		{
+			text[i] = 32;
+		}
+
+	}
+	for (int i = 0; i < text.length(); i++)
+	{
+		cout << text[i];
+	}
+	cout << endl;
+	system("pause");
+}

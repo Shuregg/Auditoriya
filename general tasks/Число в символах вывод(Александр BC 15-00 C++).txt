@@ -1,0 +1,166 @@
+#include<iostream>
+#include <ctime>
+using namespace std;
+void SymbolsOfNumbers()
+{
+	int a = 0;
+	char f;
+	cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+	cin >> f;
+	while (f == 'Y')
+	{
+		
+		cout << "Введите число от 0 до 9. " << endl;
+		cin >> a;
+		if (a == 1)
+		{
+			cout << "  B  " << endl;
+			cout << " BB  " << endl;
+			cout << "BBB  " << endl;
+			cout << "B B  " << endl;
+			cout << "  B  " << endl;
+			cout << "  B  " << endl;
+			cout << "BBBBB" << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 2)
+		{
+
+			cout << " BBB " << endl;
+			cout << "B   B" << endl;
+			cout << "    B" << endl;
+			cout << "   B " << endl;
+			cout << "  B  " << endl;
+			cout << " B   " << endl;
+			cout << "BBBBB" << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 3)
+		{
+			cout << "BBBBB" << endl;
+			cout << "   B " << endl;
+			cout << " B   " << endl;
+			cout << "  B  " << endl;
+			cout << "    B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 4)
+		{
+			cout << "   B " << endl;
+			cout << "  BB " << endl;
+			cout << " B B " << endl;
+			cout << "B  B " << endl;
+			cout << "BBBBB" << endl;
+			cout << "   B " << endl;
+			cout << "   B " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 5)
+		{
+			cout << "BBBBB" << endl;
+			cout << "B    " << endl;
+			cout << "BBBB " << endl;
+			cout << "    B" << endl;
+			cout << "    B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 6)
+		{
+			cout << "   B " << endl;
+			cout << "  B  " << endl;
+			cout << "B    " << endl;
+			cout << "BBBB " << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 7)
+		{
+			cout << "BBBBB" << endl;
+			cout << "    B" << endl;
+			cout << "   B " << endl;
+			cout << "  B  " << endl;
+			cout << " B   " << endl;
+			cout << " B   " << endl;
+			cout << " B   " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 8)
+		{
+			cout << " BBB " << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 9)
+		{
+			cout << " BBB " << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBBB" << endl;
+			cout << "    B" << endl;
+			cout << "   B " << endl;
+			cout << " BB  " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a == 0)
+		{
+			cout << " BBB " << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << "B   B" << endl;
+			cout << " BBB " << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+		if (a > 9 && a < 0)
+		{
+			cout << "Введите корректное значение! (От 0 до 9!!!)" << endl;
+			cout << "Хотите запустить программу? Y - Да / N - Нет." << endl;
+			cin >> f;
+		}
+	}
+	if (f == 'N')
+	{
+		cout << "Завершение программы. " << endl;
+	}
+	if (f != 'Y' && f != 'N')
+	{
+		cout << "Введите корректное значение! (Y - Да / N - Нет." << endl;
+	}
+}
+
+
+
+
+int main()
+{
+
+
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+
+	
+	SymbolsOfNumbers();
+	system("pause");
+}

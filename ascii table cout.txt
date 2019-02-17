@@ -1,0 +1,51 @@
+#include<iostream>
+#include<ctime>
+#include<vector>
+#include <stdlib.h>
+#include<string>
+
+using namespace std;
+
+
+void print(float* mas, int size)// Функция вывода массива
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void fill(float* m, int size) // Функция заполнения массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = rand() % 100;
+
+	}
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	string name;
+	cout << "Введите текст" << endl;
+	getline(cin, name); //Учитыват большое количество слов(учитывает пробелы)
+	int count = 0;
+	string str = "ok";
+	for (int i = 0; i < name.length(); i++)
+	{
+		if (name[i] == str[0] && name[i + 1] == str[1])
+			count++;
+	}
+	cout << "Количество <<ok>> в тексте " << name << ": " << count << endl;
+	for (int i = 0; i < 128; i++)
+	{
+		cout << i << " " << (char)i << endl;
+	}
+
+	float b = 4.5;
+	cout << (int)b << endl;
+	system("pause");
+}

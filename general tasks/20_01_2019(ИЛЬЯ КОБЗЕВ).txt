@@ -1,0 +1,257 @@
+#include<iostream>
+
+#include<vector>
+
+
+using namespace std;
+
+void print(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << m[i] << " ";
+
+	}
+	cout << endl;
+
+}
+void fill(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = (rand() % 100 - 50) / 10.0;
+	}
+}
+float max_mas(float* m, int size)
+{
+	float max = m[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (m[i] > max)
+		{
+			max = m[i];
+		}
+	}
+	cout << max << endl;
+	return max;
+}
+float min_mas(float* m, int size)
+{
+	float min = m[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (m[i] < min)
+		{
+			min = m[i];
+		}
+	}
+	cout << min << endl;
+	return min;
+}
+float swaping_mas(float* m, int size)
+{
+	float p;
+	float min = m[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (m[i] < min)
+		{
+			swap(m[i], min);
+		}
+	}
+
+	cout << m[size] << endl;
+	return p, min;
+}
+
+
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	int number;
+	int answer;
+	
+	
+	vector <int> v = {};
+	
+	/*cout << "Заполните вектор числами" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> v[i];
+	}
+	*/
+	
+	while (true)
+	{
+		cout << "1. Добавить в конец" << endl;
+		cout << "2. Добавить на заданной позиции" << endl;
+		cout << "3. Удалить всё" << endl;
+		cout << "4. Удалить на заданной позиции" << endl;
+		cout << "5. Удалить последнее" << endl;
+		cout << "6. Отсортировать" << endl;
+		cout << "7. Найти максимальное" << endl;
+		cout << "8. Вывести" << endl;
+		cout << "9. Удалить число" << endl;
+		cout << "0. Выход" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			int a;
+			cout << "Введите число,которое вы хотите добавить в вектор" << endl;
+			cin >> a;
+			v.push_back(a);
+			break;
+		}
+		case 2:
+		{
+			if (v.size() == 0 )
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			int a;
+			cout << "Введите число,которое вы хотите добавить в вектор" << endl;
+			cin >> a;
+			int position;
+			cout << "Введите позицию на которую вы хотите вписать число" << endl;
+			cin >> position;
+			if (v.size() == 0 || position > v.size())
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			
+			v.insert(v.begin() + position, a);
+			break;
+		}
+		case 3:
+		{
+			v.clear();
+			break;
+		}
+		case 4:
+		{
+			if (v.size() == 0)
+			{
+				cout << "В массиве не осталось элементов" << endl;
+				break;
+			}
+			int position;
+			cout << "Введите позицию на которой вы хотите удалить число" << endl;
+			cin >> position;
+			if (position < 0 || v.size() < position)
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			
+			v.erase(v.begin() + position);
+			break;
+		}
+		case 5:
+		{
+			if (v.size() == 0)
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			cout << "Нельзя удалять число более 10 раз" << endl;
+			v.pop_back();
+			break;
+			;
+		}
+		
+		case 6:
+		{
+			if (v.size() == 0)
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			else
+			{
+				for (int i = 0; i < v.size() - 1; i++)
+				{
+					if (v[i] > v[i + 1])
+					{
+						swap(v[i], v[i + 1]);
+					}
+				}
+				for (int i = 0; i < v.size() - 1; i++)
+				{
+					if (v[i] > v[i + 1])
+					{
+						swap(v[i], v[i + 1]);
+					}
+				}
+				break;
+			}
+		}
+		case 7:
+		{
+			if (v.size() == 0)
+			{
+				cout << "Ошибка " << endl;
+				break;
+			}
+			else
+			{
+				int max = v[0];
+				for (int i = 0; i < v.size(); i++)
+				{
+					if (v[i] > max)
+					{
+						max = v[i];
+					}
+				}
+				cout << "Максимальное: " << max << endl;
+				break;
+			}
+		}
+		case 8:
+		{
+			for (int i = 0; i < v.size(); i++)
+			{
+				cout << v[i] << " ";
+			}
+
+			cout << endl;
+			break;
+		}
+		case 9:
+		{
+			int number;
+			cout << "Введите число которое вы хотите" << endl;
+			cin >> number;
+			for (int i = 0; i < v.size(); i++)
+			{
+				if (v[i] == number)
+				{
+					v.erase(v.begin() + i);
+				}
+			}
+		
+			break;
+
+
+		}
+		case 0:
+		{
+
+			return;
+			break;
+		}
+		
+		default:
+		{
+			cout << "Error" << endl;
+		}
+		}
+	}
+	cout << endl;
+	system("pause");
+
+	
+}

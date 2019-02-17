@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<Windows.h>
+#include<ctime>
+#include<fstream>
+#include<iomanip>
+//kto
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	ofstream fout;
+	ifstream fin;
+	string name = "DdosN";
+	
+	fout.open("C:\\Users\\pupil\\Desktop\\test\\output.txt");
+	fin.open("C:\\Users\\pupil\\Desktop\\test\\input.txt");
+	int a;
+	int b;
+	cout << "Первое число " << "Второе число " << "Умножение " << "Сумма " << "Деление " << "Разность " << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		fin >> a;
+		fin >> b;
+		cout<<left<<setw(13)<< a <<setw(13)<< b <<setw(10)<< a * b <<setw(6)<< a + b <<setw(8)<< a / b <<setw(9)<< a - b << endl;
+	}
+
+	
+	fin.close();
+	fout.close();
+	system("pause");
+}

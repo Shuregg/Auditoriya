@@ -1,0 +1,216 @@
+
+#include <iostream>
+#include<ctime>
+#include <string>
+#include <vector>
+
+using namespace std;
+//#2 если в тексте ++, добавить С перед ними. В строках тоже работают erase, size, insert  
+/*for (int i = 0; i < str.length(); i++)
+{
+
+if(str[i]=='+' && str[i+1]=='+')
+	{
+		str.insert(str.begin()+i,'C');
+		i++;
+	}
+
+}
+
+
+*/
+
+int main()
+{
+
+	setlocale(LC_ALL, "Rus");
+	string str;
+	cout << "Введите логин" << endl;
+	getline(cin, str);
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == ' ')
+		{
+			str[i] = toupper(str[i+1]);
+		}
+		str[1] = toupper(str[1]);
+		if (str[i] == ' ')
+		{
+			str.erase(str.begin() + i);
+			i--;
+		}
+	}
+	cout << str << endl;
+
+	system("pause");
+}
+
+#include <iostream>
+#include<ctime>
+#include <string>
+#include <vector>
+#include <fstream>
+using namespace std;
+int main()
+{
+
+	setlocale(LC_ALL, "Rus");
+	ofstream fout;//можно fs file string,это просто переменная
+	ifstream fin;
+	//while(true) система может обнаружить
+	string name = "Ddosh";//рандомим
+	for (int i = 0; i < 20; i++)
+	{
+		name[rand() % name.length()] = 32 + rand() % 150;
+		fout.open("C:\\Users\\pupil\\Desktop\\432\\"+name+".txt"); //консоль одна, а для файла нужен адрес. Можно не указывать расширение. Можно во все директории по папке. Документация гуглится
+
+		fout << "Hello, world" << endl;
+		for (int i=0;i<50;i++)
+		{
+			fout << (char)rand() % 255;
+		}
+		fout.close();
+	}
+	
+//cout добваляет в поток в консоль ввведённое после <<
+	//сборка собрать решение, найти этот проект, но не открываьт
+	system("pause");
+}
+
+#include <iostream>
+#include<ctime>
+#include <string>
+#include <vector>
+#include <fstream>
+using namespace std;
+int main()
+{
+
+	setlocale(LC_ALL, "Rus");
+	ofstream fout;
+	ifstream fin;
+
+		fout.open("C:\\Users\\pupil\\Desktop\\432\\file.txt");
+		fin.open("C:\\Users\\pupil\\Desktop\\432\\file2.txt");//нельзя один файл записывать и считваыть одновременно
+		int a;
+		int b;
+		int c;
+		fin >> a;
+		fin >> b;
+		fin >> c;
+
+		cout << a << " " << b << " " << c << endl;
+	
+		fout.close();
+		fin.close();
+
+	system("pause");
+}
+
+#include <iostream>
+#include<ctime>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+
+	setlocale(LC_ALL, "Rus");
+	ofstream fout;
+	ifstream fin;
+
+		fout.open("C:\\Users\\pupil\\Desktop\\432\\output.txt");
+		fin.open("C:\\Users\\pupil\\Desktop\\432\\input.txt");//нельзя один файл записывать и считваыть одновременно
+		int a;
+		int b;
+		fout << "a     b     a*b     a+b" << endl;
+		for (int i=0;i<4;i++)
+		{
+			fin >> a;
+			fin >> b;
+			fout <<left<<setfill('#')<< a << setw(5)  << b << setw(5) << a * b << setw(5) << endl;
+		}
+		
+
+		
+	
+		fout.close();
+		fin.close();
+
+	system("pause");
+}
+
+считвыать имена
+string str;
+int ch;
+vector<string>names;
+vector<int> ages;
+ while(!fin.eof()) //пока не конец файла(end of file)
+{fin>>str;
+fin>>ch;
+names.push_back(str);
+ages.push_back(ch);}
+for(int i=0;i<names.size();i++)
+{cout<<names[i]<<" "<<ages[i]<<endl; //в swap сразу оба вектора
+//дз площадь треугольника
+
+#include <iostream>
+#include<ctime>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	ofstream fout;
+	ifstream fin;
+
+		fout.open("C:\\Users\\pupil\\Desktop\\432\\output.txt");
+		fin.open("C:\\Users\\pupil\\Desktop\\432\\input.txt");
+		int a;
+		int b;
+		fout.close();
+		fin.close();
+		string str;
+		int ch;
+		vector<string>names;
+		vector<int> ages;
+		while (!fin.eof()) 
+		{
+			fin >> str;
+			fin >> ch;
+			names.push_back(str);
+			ages.push_back(ch);
+		}
+		for (int i = 0; i < names.size(); i++)
+		{
+			cout << names[i] << " " << ages[i] << endl;
+		}
+		for (int i = 0; i < names.size() - 1; i++)
+		{
+			for (int j = 0; j < names.size() - 1; j++)
+			{
+				if (ages[j] < ages[j + 1])
+				{
+					swap(ages[j], ages[j + 1]);
+					swap(names[j], names[j + 1]);
+				}
+			}
+		}
+			for(int i=0;i<names.size();i++)
+			{
+				fout << setw(10) << names[i] << setw(10) << ages[i] << endl;
+			}
+		//дз площадь треугольника??
+		/*Nastya 16
+Sasha 16
+Viktor 14
+Tolya 20*/
+		//github может воедино два  кода; позволяет  сохранять  код удаленно на сайт, сохраняется поэтапно, без замез
+	system("pause");
+}
+

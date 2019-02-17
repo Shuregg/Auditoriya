@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<fstream>
+#include<iomanip>
+#include<math.h>
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	ofstream fout;
+	ifstream fin;
+
+	fout.open("C:\\Users\\ShureG\\Desktop\\test\\output.txt");
+	fin.open("C:\\Users\\ShureG\\Desktop\\test\\input.txt");
+	fout << left << setw(10) << "a:" << setw(10) << "b:" << setw(10) << "c:" << setw(10) << "being:" <<setw(10)<<"square:"<< endl;
+	while (!fin.eof())
+	{
+		int a;
+		int b;
+		int c;
+		fin >> a;
+		fin >> b;
+		fin >> c;
+		
+		if (((a + b) > c) && ((a + c) > b) && ((b + c) > a))
+		{
+			
+			float p = (a + b + c) / 2;
+			float S = sqrt(p * (p - a)*(p - b)*(p - c));
+				fout << left << setw(10) << a << setw(10) << b << setw(10) << c << setw(10) << "Yes!" << setw(10) << S << endl;
+		}
+		else
+		{
+			fout << left << setw(10) << a << setw(10) << b << setw(10) << c << setw(10) << "No." <<setw(10)<<"--- ---"<< endl;
+		}
+	}
+	fout.close();
+	fin.close();
+
+	system("pause");
+}

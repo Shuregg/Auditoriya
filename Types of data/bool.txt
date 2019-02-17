@@ -1,0 +1,39 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+void main()
+{
+	
+	//shamaneeel@mail.ru
+	//
+	// Switch-case break continue
+	// типы данных: bool , char
+
+	bool n = false;
+	for (int i = 0; i < 20; i=i+1)
+	{
+
+		int b = rand() % 1067 - 116;
+
+		cout << b << endl;
+
+		if (b % 2 == 0)
+		{
+			n = true;
+		}
+
+	}
+
+	if (n == true) cout << "Четные есть!" << endl;
+	else cout << "Четных нет!" << endl;
+
+	
+	
+
+
+
+
+
+
+	system("pause");
+}

@@ -1,0 +1,91 @@
+#include<iostream>
+#include<ctime>
+#include<vector>
+#include <stdlib.h>
+#include<string>
+#include<Windows.h>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	vector<char> open;
+	string code;
+	
+	while (true)
+	{
+		int e = 1;
+		cout << "Введите код" << endl;
+		getline(cin, code);
+		for (int i = 0; i < code.length(); i++)
+		{
+			if ((code[i] == ')' && i == 0) || (code[i] == ']' && i == 0) || (code[i] == '}' && i == 0) )
+			{
+				e = 0;
+				break;
+			}
+			if (code[i] == '(' || code[i] == '{' || code[i] == '[')
+			{
+				open.push_back(code[i]);
+			}
+
+			if (code[i] == ')' && open[open.size() - 1] == '(')
+			{
+				if (open.size() == 0)
+				{
+					break;
+				}
+				else
+				{
+					open.pop_back();
+				}
+			}
+			if ((code[i] == '}' && open[open.size() - 1] == '{'))
+			{
+				if (open.size() == 0)
+				{
+					break;
+				}
+				else
+				{
+					open.pop_back();
+				}
+			}
+			if ((code[i] == ']' && open[open.size() - 1] == '[') && open.size() != 0)
+			{
+				if (open.size() == 0)
+				{
+					break;
+				}
+				else
+				{
+					open.pop_back();
+				}
+			}
+
+		}
+
+
+		if (e == 0)
+		{
+			cout << "В коде есть ошибки со скобками." << endl;
+			break;
+			open.clear();
+		}
+		if (open.size() == 0)
+		{
+			cout << "Скобки расставлены правильно!" << endl;
+			open.clear();
+		}
+		else
+		{
+			cout << "В коде есть ошибки со скобками." << endl;
+			open.clear();
+		}
+		cout << endl;
+		cout << endl;
+	}
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,28 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<Windows.h>
+
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	string text;
+	cout << "¬ведите текст" << endl;
+	getline(cin, text);
+
+	string word;
+	getline(cin, word);
+	while (text.find(word) != -1)
+	{
+		int pos = text.find(word);
+		for (int i = pos; i < pos + word.length(); i++)
+		{
+			text[i] = '*';
+		}
+		cout << text << endl;
+	}
+	system("pause");
+}

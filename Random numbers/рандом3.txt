@@ -1,0 +1,31 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	int n;
+	int z;
+	
+		
+		for (int i = 0; i < 10; i = i + 1  )
+		{ 
+			z = rand() % 2;
+			if (z == 0)
+			{
+				n = rand() % 30 - 30;
+
+			}
+			if (z == 1)
+			{
+				n = rand() % 30 + 30;
+			}
+			cout << n << endl;
+		}
+	
+
+
+	system("pause");
+}

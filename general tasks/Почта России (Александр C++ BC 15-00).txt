@@ -1,0 +1,129 @@
+#include<iostream>
+#include<ctime>
+#include<vector>
+
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	
+	vector<vector<int>> rooms;
+	vector<float> PostRoomSmall;
+	vector<float> PostRoomMedium;
+	vector<float> PostRoomLarge;
+	
+	while (true)
+	{
+		cout << "1. Добавить посылку " << endl;
+		cout << "2. Удалить посылку(по весу) " << endl;
+		cout << "0. Выход из программы" << endl;
+		int answer;
+		cin >> answer;
+		if (answer < 0 || answer > 3)
+		{
+			cout << "Введите корректное значение! " << endl;
+			system("pause");
+			break;
+		}
+		
+
+		switch (answer)
+		{
+			
+		case 1:
+		{
+			float weight;
+			cout << "Введите вес посылки (в килограммах)." << endl;
+			cin >> weight;
+			if (weight > 0 && weight <= 1)
+			{
+				PostRoomSmall.push_back(weight);
+
+			}
+			if (weight > 1 && weight < 7)
+			{
+				PostRoomMedium.push_back(weight);
+
+			}
+			if (weight >= 7)
+			{
+				PostRoomLarge.push_back(weight);
+
+			}
+			cout << endl;
+			cout << "Первое отделение: ";
+			for (int i = 0; i < PostRoomSmall.size(); i++)
+			{
+				cout << PostRoomSmall[i] << " ";
+			}
+			cout << endl;
+			cout << "Второе отделение: ";
+			for (int i = 0; i < PostRoomMedium.size(); i++)
+			{
+				cout << PostRoomMedium[i] <<" ";
+			}
+			cout << endl;
+			cout << "Третье отделение: ";
+			for (int i = 0; i < PostRoomLarge.size(); i++)
+			{
+				cout << PostRoomLarge[i] << " ";
+			}
+			cout << endl;
+			break;
+		}
+		
+		
+
+		case 2:
+		{
+			int weight;
+			cout << "Введите вес посылки, которую хотите выбросить." << endl;
+			cin >> weight;
+			for (int i = 0; i < PostRoomSmall.size(); i++)
+			{
+				if (PostRoomSmall[i] == weight)
+				{
+					PostRoomSmall.erase(PostRoomSmall.begin() + i);
+				}
+			}
+			for (int i = 0; i < PostRoomMedium.size(); i++)
+			{
+				if (PostRoomMedium[i] == weight)
+				{
+					PostRoomMedium.erase(PostRoomMedium.begin() + i);
+				}
+			}
+			for (int i = 0; i < PostRoomLarge.size(); i++)
+			{
+				if (PostRoomLarge[i] == weight)
+				{
+					PostRoomLarge.erase(PostRoomLarge.begin() + i);
+				}
+			}
+			break;
+		}
+		
+		
+		case 0:
+		{
+			char g;
+			cout << "Вы действительно хотите выйти? Y - Да/ N -  Нет." << endl;
+				cin >> g;
+			if (g == 'Y' || g == 'y')
+			{
+				return;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		}
+			
+	}
+
+
+	system("pause");
+}

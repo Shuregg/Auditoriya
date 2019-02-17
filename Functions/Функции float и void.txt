@@ -1,0 +1,35 @@
+#include<iostream>
+
+using namespace std;
+
+
+
+float max(float a, float b)
+{
+	if (a > b)
+	{
+		return a;
+	}
+	if (b > a)
+	{
+		return b;
+	}
+
+}
+
+
+
+
+
+
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	float a, b;
+	float e;
+	e = max(a, b);
+
+
+	system("pause");
+}

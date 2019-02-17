@@ -1,0 +1,46 @@
+#include<iostream>
+
+using namespace std;
+float mypow(float a, float n)
+{
+	float result = 1;
+	
+	if (n > 0)
+	{
+		for (int i = 1; i <= n; i++)
+		{
+			result = result * a;
+
+		}
+		return result;
+	}
+	if (n < 0)
+	{
+		for (int i = 1; i <= -n; i++)
+		{
+			result = (result * a) ;
+
+		}
+		result = 1.0 / result;
+		return result;
+	}
+
+	if (n == 0)
+	{
+		return 1;
+	}
+	
+}
+
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	float a = 0.0, n = 0.0;
+	cout << "ВВедите число " << endl;
+	cin >> a;
+	cout << "Введите степень " << endl;
+	cin >> n;
+	cout << "Ответ: " << mypow(a, n) << endl;
+	system("pause");
+}

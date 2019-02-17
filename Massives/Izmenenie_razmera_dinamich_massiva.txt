@@ -1,0 +1,55 @@
+#include<iostream>
+#include<ctime>
+
+using namespace std;
+
+
+void print(int* mas, int size)// Функция вывода массива
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void fill(int* m, int size) // Функция заполнения массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = rand() % 100;
+
+	}
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	int n;
+	cout << "Ввести длину массива" << endl;
+	cin >> n;
+	int* mas;
+	mas = new int[n];
+	fill(mas, n);
+	print(mas, n);
+
+	int* buf = new int[n + 1];
+
+	for (int i = 0; i < n; i++)
+	{
+		buf[i] = mas[i];
+	}
+	cout << "ВВедите последний элемент: " << endl;
+	cin >> buf[n];
+	delete[] mas;
+	print(buf, n + 1);
+	mas = buf;
+	n++;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	delete[] mas; //Удаляет оба массива, так как у них одинаковый путь.
+	system("pause");
+}

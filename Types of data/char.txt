@@ -1,0 +1,12 @@
+char g;
+cout « "Do you like pizza?" « endl;
+cout « "Y - yes \ N - no" « endl;
+cin » g;
+if (g == 'Y')
+{ 
+cout « "I like it too" « endl; 
+} 
+if (g == 'N') 
+{ 
+cout « "Are u kidding me, boy?" « endl; 
+}

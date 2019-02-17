@@ -1,0 +1,72 @@
+#include<iostream>
+#include<ctime>
+
+using namespace std;
+
+
+float whole_number(float* mas_name, int size) //Проверка элементов массива на целочисленность
+{
+	for (int i = 0; i < size; i++)
+	{
+		int whole_mas = mas_name[i]; // whole_mas - переменная для превращения float в целое число
+		if (mas_name[i] - whole_mas == 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+}
+
+float number_of_negative(float* mas_name, int size) //Поиск отрицательных элементов в массиве
+{
+	int sum = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (mas_name[i] < 0)
+		{
+			sum = sum + 1;
+		}
+	}
+	return sum;
+}
+
+void fill_mas(float* mas_name, int size) //Заполнение массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		mas_name[i] = rand() % (200 - 100) / 10.0 ;
+		
+	}
+}
+
+void print_mas(float* mas_name, int size)//Вывод массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas_name[i] << ",  ";
+	}
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	float n;
+
+		cout << "Введите размер массива." << endl;
+		cin >> n;
+		float* mas = new float[n];
+		fill_mas(mas, n);
+		cout << "Максимальное рандомное число без операций: " << RAND_MAX << endl;
+		print_mas(mas, n);
+		cout << endl;
+		cout << "Количество отрицательных числел: " << number_of_negative(mas, n) << endl;
+		cout << "Наличие целочисленных элементов: " << whole_number(mas, n) << endl;
+		delete[] mas;
+		system("pause");
+	
+}

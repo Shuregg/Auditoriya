@@ -1,0 +1,110 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+
+float min_mas(float* mas, int size) // Функция минимального числа
+{
+	float min = mas[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (mas[i] < min)
+		{
+			min = mas[i];
+		}
+	}
+	return min;
+}
+
+float max_mas(float* mas, int size) //Функция максимального числа 
+{
+
+	float max = mas[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (mas[i] > max)
+		{
+			max = mas[i];
+		}
+	}
+	return max;
+}
+
+void print(float* mas, int size)// Функция вывода массива
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void fill(float* m, int size) // Функция заполнения массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = rand() % 100;
+		
+	}
+}
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	float n;
+	cout << "Длина массива: " << endl;
+	cin >> n;
+	cout << endl;
+	float* mas = new float[n];
+	
+	fill(mas, n);
+	
+	int answer;
+	while (true)
+	{
+		cout << "1. Заполнить массив " << endl;
+		cout << "2. Вывести на экран " << endl;
+		cout << "3. Найти максимум" << endl;
+		cout << "4. Найти минимум" << endl;
+		cout << "0. Выход" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+			case 1:
+			{
+				fill(mas, n);
+				break;
+			}
+			case 2:
+			{
+				print(mas, n);
+				break;
+			}
+			case 3:
+			{
+			
+			cout << "Максимум: " << max_mas(mas, n) << endl;
+			break;
+			}
+			case 4:
+			{
+				cout << "Минимум: " << min_mas(mas, n) << endl;
+				break;
+			}
+			case 0:
+			{
+				delete[] mas;
+				return;
+			}
+			default:
+			{
+				cout << "Ошибка! Введите корректное значение!" << endl;
+
+			}
+		}
+	}
+
+	
+	system("pause");
+}

@@ -1,0 +1,182 @@
+#include<iostream>
+#include<ctime>
+#include<vector>
+#include <stdlib.h>
+
+using namespace std;
+
+
+void print(float* mas, int size)// Функция вывода массива
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void fill(float* m, int size) // Функция заполнения массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = rand() % 100;
+
+	}
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	vector<int> v;
+	
+
+	while (true)
+	{
+		system("cls");
+		cout << "1. Добавить в конец. " << endl;
+		cout << "2. Добавить на заданную позицию. " << endl;
+		cout << "3. Удалить всё. " << endl;
+		cout << "4. Удалить на заданной позиции. " << endl;
+		cout << "5. Удалить последнее. " << endl;
+		cout << "6. Отсортировать. " << endl;
+		cout << "7. Найти маскимальный. " << endl;
+		cout << "8. Вывести. " << endl;
+		cout << "9. Выйти. " << endl;
+		int answer;
+
+		cin >> answer;
+		if (answer < 0 || answer > 9)
+		{
+			
+			cout << "Введите корректное значение!" << endl;
+			
+			system("pause");
+			break;
+		}
+		switch (answer)
+		{
+		case 1:
+		{
+			int a;
+			cout << "Введите желаемое число. " << endl;
+			cin >> a;
+			v.push_back(a);
+			break;
+		}
+
+		case 2:
+		{
+
+			int position;
+			int number;
+			cout << "Введите желаемое число" << endl;
+			cin >> number;
+
+			cout << "Введите позицию для этого числа" << endl;
+			cin >> position;
+			if ((position > v.size() - 1) || (position < 0))
+			{
+				
+				cout << "Введите корректное значение! Позиция не может быть меньше нуля или больше размера массива!" << endl;
+				
+				system("pause");
+				break;
+			}
+
+			v.insert(v.begin() + position, number);
+			break;
+		}
+
+		case 3:
+		{
+			cout << "Удаление.." << endl;
+			v.clear();
+			system("pause");
+			break;
+		}
+
+		case 4:
+		{
+			int position;
+			cout << "Введите номер позиции элемента, чтобы удалить его" << endl;
+			cin >> position;
+
+			if ((position > (v.size() - 1)) || (position < 0))
+			{
+				cout << "Введите корректное значение! Позиция не может быть меньше нуля или больше размера массива!" << endl;
+				break;
+			}
+			v.erase(v.begin() + position);
+			system("pause");
+			break;
+		}
+
+		case 5:
+		{
+			cout << "Удаление последнего элемента.. " << endl;
+			v.pop_back();
+			system("pause");
+			break;
+		}
+
+		case 6:
+		{
+			int max = v[0];
+			for (int i = 0; i < v.size() - 1; i++)
+			{
+				for (int j = 0; j < v.size() - 1; j++)
+				{
+					if (v[i] > v[i + 1])
+					{
+						swap(v[i], v[i + 1]);
+						max = v[i];
+					}
+				}
+			}
+
+			for (int i = 0; i < v.size(); i++)
+			{
+				cout << v[i] << " ";
+			}
+
+			system("pause");
+			break;
+		}
+
+		case 7:
+		{
+			int max_element = v[0];
+			for (int i = 0; i < v.size() - 1; i++)
+			{
+				if (v[i] > max_element)
+				{
+					max_element = v[i];
+				}
+			}
+			cout << "Максимальный элемент вектора: " << max_element << endl;
+			system("pause");
+			break;
+		}
+
+		case 8:
+		{
+			for (int i = 0; i < v.size(); i++)
+			{
+				cout << v[i] << " ";
+			}
+			system("pause");
+			break;
+		}
+
+		case 9:
+		{
+			cout << "Выход из программы.." << endl;
+			system("pause");
+			return;
+		}
+		}
+
+	}
+	system("pause");
+}

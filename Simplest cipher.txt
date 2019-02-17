@@ -1,0 +1,58 @@
+#include<iostream>
+#include<ctime>
+#include<vector>
+#include <stdlib.h>
+#include<string>
+
+using namespace std;
+
+
+void print(float* mas, int size)// Функция вывода массива
+{
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void fill(float* m, int size) // Функция заполнения массива
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = rand() % 100;
+
+	}
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+	string name;
+	cout << "Введите текст" << endl;
+	getline(cin, name); //Учитыват большое количество слов(учитывает пробелы)
+
+	int k;
+	cout << "Введите ключ" << endl;
+	cin >> k;
+	int code;
+	for (int i = 0; i < name.length(); i++)
+	{
+		 code = (int)name[i] + k;
+		name[i] = (char)code;
+		cout << name[i] << " ";
+		cout << endl;
+		
+	}
+	for (int i = 0; i < name.length(); i++)
+	{
+		code = (int)name[i] - k;
+		name[i] = (char)code;
+		cout << name[i] << " ";
+		cout << endl;
+
+	}
+	
+	system("pause");
+}
